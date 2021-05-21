@@ -12,25 +12,20 @@ class Admin extends My_Controller
     
     public function index()
     {
-        // $this->gate_model->admin_gate();
+        $this->gate_model->admin_gate();
         // return;
         // $data['all_request'] = $this->user_model->get_upgrade_requests();
         // $this->load->view('layout/dashboard/header', array('title' => 'Admin Dashboard'));
         // $this->loadSidebar(null, null);
         // $this->load->view('admin/dashboard', $data);
         // $this->load->view('layout/dashboard/footer');
+        redirect('admin/dsdichvu');
     }
     
     public function mucchi()
     {
-        // $this->gate_model->admin_gate();
-        
+        $this->gate_model->admin_gate();
         $categories = $this->category_model->get_all_category();
-        // return;
-        // $data['all_request'] = $this->user_model->get_upgrade_requests();
-        // $this->load->view('layout/dashboard/header', array('title' => 'Admin Dashboard'));
-        // $this->loadSidebar(null, null);
-        // $this->load->view('admin/dashboard', $data);
         $this->load->view('layout/head');
         $this->load->view('layout/side');
         $data['categories'] = $categories;
@@ -39,6 +34,7 @@ class Admin extends My_Controller
     // Danh sách mục vhi
     public function dsmucchi()
     {
+        $this->gate_model->admin_gate();
         $categories = $this->product_model->get_all_product();
         $data['categories'] = $categories;
         $this->load->view('layout/head');
@@ -49,12 +45,7 @@ class Admin extends My_Controller
     // Them loai dv
     public function loaidv()
     {
-        // $this->gate_model->admin_gate();
-        // return;
-        // $data['all_request'] = $this->user_model->get_upgrade_requests();
-        // $this->load->view('layout/dashboard/header', array('title' => 'Admin Dashboard'));
-        // $this->loadSidebar(null, null);
-        // $this->load->view('admin/dashboard', $data);
+        $this->gate_model->admin_gate();
         $this->load->view('layout/head');
         $this->load->view('layout/side');
         $data['link'] = "/index.php/admin/themloaidv";
@@ -62,30 +53,18 @@ class Admin extends My_Controller
     }
     // Post them loai dv
     public function themloaidv(){
-        // $this->gate_model->admin_gate();
+        $this->gate_model->admin_gate();
         $data['name'] = $this->input->post('name');
         $insert = $this->category_model->create_category($data);
         if ($insert){
-            $this->load->view('admin/add_category');
+            redirect('admin/dichvu');
             return;
         }
         echo ("cannot insert");
     }
-    
-    // public function loaidv()
-    // {
-    //     // $this->gate_model->admin_gate();
-    //     // return;
-    //     // $data['all_request'] = $this->user_model->get_upgrade_requests();
-    //     // $this->load->view('layout/dashboard/header', array('title' => 'Admin Dashboard'));
-    //     // $this->loadSidebar(null, null);
-    //     // $this->load->view('admin/dashboard', $data);
-    //     $data['link'] = "/index.php/admin/sualoaidv";
-    //     $this->load->view('admin/add_category', $data);
-    // }
     // Post thêm mục chi
     public function themmucchi(){
-        // $this->gate_model->admin_gate();
+        $this->gate_model->admin_gate();
         $data['pname'] = $this->input->post('name');
         $data['cid'] = $this->input->post('category');
         $data['price1'] = $this->input->post('price1');
@@ -94,7 +73,7 @@ class Admin extends My_Controller
         $data['price4'] = $this->input->post('price4');
         $insert = $this->product_model->create_product($data);
         if ($insert){
-            $this->load->view('admin/add_category');
+            redirect('admin/dsmucchi');
             return;
         }
         echo ("cannot insert");
@@ -102,6 +81,7 @@ class Admin extends My_Controller
     // DS dịch vụ
     public function dichvu()
     {
+        $this->gate_model->admin_gate();
         $categories = $this->category_model->get_all_category();
         $data['categories'] = $categories;
         $this->load->view('layout/head');
@@ -110,14 +90,26 @@ class Admin extends My_Controller
     }
     public function xoadichvu($id)
     {
+        $this->gate_model->admin_gate();
+        $this->gate_model->admin_gate();
         $is_used = $this->category_model->checkUseCategory($id);
         if (!$is_used){
             $res = $this->category_model->delete_category($id);
         }
         return redirect('/admin/dichvu');
     }
+    public function xoamucchi($id)
+    {
+        $this->gate_model->admin_gate();
+        // $is_used = $this->category_model->checkUseCategory($id);
+        // if (!$is_used){
+            $res = $this->product_model->delete_product($id);
+        // }
+        return redirect('/admin/mucchi');
+    }
     public function suadichvu($id)
     {
+        $this->gate_model->admin_gate();
         $categories = $this->category_model->get_category_id($id);
         if (count($categories)>0){
             $data['category'] = $categories[0];
@@ -135,6 +127,5 @@ class Admin extends My_Controller
         $insert = $this->category_model->update_category($data['id'],$data);
         return redirect('/admin/dichvu');
     }
-    
     
 }

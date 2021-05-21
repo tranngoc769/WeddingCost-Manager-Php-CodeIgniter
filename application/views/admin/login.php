@@ -50,7 +50,7 @@
                 <div class="col-lg-6">
                         <div class="contact-wrap bg-white shadow-lg rounded-lg">
                             <h1 class="text-grey-900 fw-700 display3-size mb-5 lh-1">Đăng nhập trang quản lý</h1>
-                            <form action="#">
+                            <form method="POST" action="/index.php/Account/login">
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group mb-3">
@@ -63,7 +63,7 @@
                                         </div>        
                                     </div>
                                     <div class="col-12">
-                                        <a style="color:white;width:100%" href="#" class="form-control rounded-lg float-right bg-current text-white text-center font-xss border-2 border-0 p-0 w175">Đăng nhập</a>
+                                        <button type="submit" style="color:white;width:100%" href="#" class="form-control rounded-lg float-right bg-current text-white text-center font-xss border-2 border-0 p-0 w175">Đăng nhập</button>
                                     </div>
                                 </div>
                                 

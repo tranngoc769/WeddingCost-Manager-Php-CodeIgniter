@@ -5,7 +5,7 @@
                                     <div class="col-lg-12 mb-12">
                                         <div class="form-gorup">
                                             <label class="mont-font fw-600 font-xsss" for="comment-name">Mã</label>
-                                            <input type="text" value="<?=$category->id ?>" name="id" class="form-control" required>
+                                            <input type="text" value="<?=$category->id ?>" name="id" class="form-control">
                                         </div>
                                     </div>
                                 </div>

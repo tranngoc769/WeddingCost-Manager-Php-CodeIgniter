@@ -18,7 +18,7 @@ class Gate_model extends CI_Model {
 			$message .= "<strong>Warning!</strong> You are not the admin!";
 			$message .= "</div>";
 			$this->session->set_flashdata("success", $message );
-			redirect('shop');
+			redirect('/Account/index');
 		}
     }
     

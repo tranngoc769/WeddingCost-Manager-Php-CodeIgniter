@@ -25,11 +25,11 @@
                                         <td><?= $ct->price4 ?></td>
                                         <td>
                                             <ul class="list-inline m-0">
-                                                <li class="list-inline-item">
+                                                <!-- <li class="list-inline-item">
                                                     <a href="/index.php/admin/suadichvu/<?= $ct->id ?>" style="background-color: #c94b4b;  font-size :10px !important; padding: 0.7rem !important; color: white !important;" class="rounded-lg bg-current mb-2 p-3 text-center font-xssss mont-font text-uppercase ls-3 text-white d-block">Sửa</a>
-                                                </li>
+                                                </li> -->
                                                 <li class="list-inline-item">
-                                                    <a href="/index.php/admin/xoadichvu/<?= $ct->id ?>" style="background-color: #c94b4b !important;  font-size :10px !important; padding: 0.7rem !important; color: white !important;" class="rounded-lg bg-current mb-2 p-3 text-center font-xssss mont-font text-uppercase ls-3 text-white d-block">Xóa</a>
+                                                    <a href="/index.php/admin/xoamucchi/<?= $ct->id ?>" style="background-color: #c94b4b !important;  font-size :10px !important; padding: 0.7rem !important; color: white !important;" class="rounded-lg bg-current mb-2 p-3 text-center font-xssss mont-font text-uppercase ls-3 text-white d-block">Xóa</a>
                                                 </li>
                                             </ul>
                                         </td>
@@ -47,7 +47,6 @@
     <div class="footer-wrapper mt-0 bg-dark ">
         <div class="container ">
             <div class="row ">
-
                 <div class="col-lg-12 ">
                     <div class="row ">
                         <div class="col-md-12 col-lg-4 col-sm-9 col-xs-12 md-mb25 ">
