@@ -12,22 +12,27 @@
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <link rel="stylesheet" href="/style/css/bootstrap.css">
     <link rel="stylesheet" href="/style/css/style.css">
+    <script src="https://cdn.jsdelivr.net/alasql/0.3/alasql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.12/xlsx.core.min.js"></script>
 </head>
+
 <body class="color-theme-blue">
     <div class="preloader"></div>
     <div class="main-wrapper">
-    <div class="header-wrapper shadow-xs">
+        <div class="header-wrapper shadow-xs">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 navbar">
-                         <a href="index.html" class="logo"><h1 class="fredoka-font ls-3 fw-700 text-current display1-size">Zipto</h1></a>
+                        <a href="index.html" class="logo">
+                            <h1 class="fredoka-font ls-3 fw-700 text-current display1-size">Zipto</h1>
+                        </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNavDropdown">
                             <ul class="navbar-nav nav-menu float-none text-center">
 
-                            <li class="nav-item"><a class="nav-link" href="/">Trang chủ</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/">Trang chủ</a></li>
                                 <li class="nav-item"><a class="nav-link" href="/">Về chúng tôi</a></li>
                                 <li class="nav-item"><a class="nav-link" href="/">Liên hệ</a></li>
                                 <li class="nav-item"><a class="nav-link" href="/index.php/Admin">Quản trị</a></li>
@@ -52,9 +57,9 @@
                             <a href="#" class="dash-menu d-none d-block-md"><i class="ti-package font-sm mr-2"></i> Menu <i class="ti-angle-down font-xsss float-right "></i></a>
                             <ul class="dash-menu-ul">
                                 <li class="d-block rounded-lg"><a href="#"><i class="ti-package font-sm"></i><span style="font-size: large"> Chọn loại dịch vụ<br><span></span></span></a></li>
-                                <li id="cate_1" class="d-block rounded-lg active"><a href="#"><i class="ti-pie-chart font-sm " ></i><span>Dịch vụ 1</span></a></li>
-                                <li id="cate_2" class="d-block rounded-lg active"><a href="#"><i class="ti-email font-sm"></i><span> Dịch vụ 2</span></a></li>
-                                <li id="cate_3" class="d-block rounded-lg active"><a href="#"><i class="ti-comments font-sm"></i><span> Dịch vụ 3</span></a></li>
+                                <?php foreach ($categories as $i => $ct) : ?>
+                                    <li id="cate_<?= $ct->id ?>" class="d-block rounded-lg active"><a href="#"><i class="ti-pie-chart font-sm "></i><span><?= $ct->name ?></span></a></li>
+                                <?php endforeach; ?>
                             </ul>
                         </div>
                     </div>
@@ -67,515 +72,47 @@
                                         <tr>
                                             <th width="40%" class="border-0 p-3 text-left">Sản phẩm</th>
                                             <th width="20%" class="border-0 p-3 text-center">Đơn giá</th>
-                                            <th width="20%" class="border-0 p-3 text-left">Số lượng</th>
+                                            <th width="10%" class="border-0 p-3 text-left">Phân khúc</th>
+                                            <th width="10%" class="border-0 p-3 text-left">Số lượng</th>
                                             <th width="20%" class="border-0 p-3 text-center">Tổng giá</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="p_cate_1">
-                                            <td class="product-headline text-left wide-column ">
-                                                <h3>
-                                                    <a href="# " class="text-grey-900 fw-600 ">Sản phẩm 1</a>
-                                                </h3>
-                                            </td>
-                                            <td class="product-p ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money text-grey-500 fw-500 ">đ 500.000</span>
-                                                </span>
-                                            </td>
-                                            <td class="product-quantity ">
-                                                <div class="quantity ">
-                                                    <input type="number " class="quantity-input " name="qty " id="qty-1 " value="1 " min="1 ">
-                                                    <div class="dec qtybutton ">-</div>
-                                                    <div class="inc qtybutton ">+</div>
-                                                </div>
-                                            </td>
-                                            <td class="product-total-price ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money fmont "><strong>đ 500.000</strong></span>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr class="p_cate_2">
-                                            <td class="product-headline text-left wide-column ">
-                                                <h3 class="nH3">
-                                                    <a href="# " class="text-grey-900 fw-600 ">Sản phẩm 2</a>
-                                                </h3>
-                                            </td>
-                                            <td class="product-p ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money text-grey-500 fw-500 ">đ 500.000</span>
-                                                </span>
-                                            </td>
-                                            <td class="product-quantity ">
-                                                <div class="quantity ">
-                                                    <input type="number " class="quantity-input " name="qty " id="qty-1 " value="1 " min="1 ">
-                                                    <div class="dec qtybutton ">-</div>
-                                                    <div class="inc qtybutton ">+</div>
-                                                </div>
-                                            </td>
-                                            <td class="product-total-price ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money fmont "><strong>đ 500.000</strong></span>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr class="p_cate_2">
-                                            <td class="product-headline text-left wide-column ">
-                                                <h3 class="nH3">
-                                                    <a href="# " class="text-grey-900 fw-600 ">Sản phẩm 2</a>
-                                                </h3>
-                                            </td>
-                                            <td class="product-p ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money text-grey-500 fw-500 ">đ 500.000</span>
-                                                </span>
-                                            </td>
-                                            <td class="product-quantity ">
-                                                <div class="quantity ">
-                                                    <input type="number " class="quantity-input " name="qty " id="qty-1 " value="1 " min="1 ">
-                                                    <div class="dec qtybutton ">-</div>
-                                                    <div class="inc qtybutton ">+</div>
-                                                </div>
-                                            </td>
-                                            <td class="product-total-price ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money fmont "><strong>đ 500.000</strong></span>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr class="p_cate_2">
-                                            <td class="product-headline text-left wide-column ">
-                                                <h3 class="nH3">
-                                                    <a href="# " class="text-grey-900 fw-600 ">Sản phẩm 2</a>
-                                                </h3>
-                                            </td>
-                                            <td class="product-p ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money text-grey-500 fw-500 ">đ 500.000</span>
-                                                </span>
-                                            </td>
-                                            <td class="product-quantity ">
-                                                <div class="quantity ">
-                                                    <input type="number " class="quantity-input " name="qty " id="qty-1 " value="1 " min="1 ">
-                                                    <div class="dec qtybutton ">-</div>
-                                                    <div class="inc qtybutton ">+</div>
-                                                </div>
-                                            </td>
-                                            <td class="product-total-price ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money fmont "><strong>đ 500.000</strong></span>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr class="p_cate_2">
-                                            <td class="product-headline text-left wide-column ">
-                                                <h3 class="nH3">
-                                                    <a href="# " class="text-grey-900 fw-600 ">Sản phẩm 2</a>
-                                                </h3>
-                                            </td>
-                                            <td class="product-p ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money text-grey-500 fw-500 ">đ 500.000</span>
-                                                </span>
-                                            </td>
-                                            <td class="product-quantity ">
-                                                <div class="quantity ">
-                                                    <input type="number " class="quantity-input " name="qty " id="qty-1 " value="1 " min="1 ">
-                                                    <div class="dec qtybutton ">-</div>
-                                                    <div class="inc qtybutton ">+</div>
-                                                </div>
-                                            </td>
-                                            <td class="product-total-price ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money fmont "><strong>đ 500.000</strong></span>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr class="p_cate_2">
-                                            <td class="product-headline text-left wide-column ">
-                                                <h3 class="nH3">
-                                                    <a href="# " class="text-grey-900 fw-600 ">Sản phẩm 2</a>
-                                                </h3>
-                                            </td>
-                                            <td class="product-p ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money text-grey-500 fw-500 ">đ 500.000</span>
-                                                </span>
-                                            </td>
-                                            <td class="product-quantity ">
-                                                <div class="quantity ">
-                                                    <input type="number " class="quantity-input " name="qty " id="qty-1 " value="1 " min="1 ">
-                                                    <div class="dec qtybutton ">-</div>
-                                                    <div class="inc qtybutton ">+</div>
-                                                </div>
-                                            </td>
-                                            <td class="product-total-price ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money fmont "><strong>đ 500.000</strong></span>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr class="p_cate_2">
-                                            <td class="product-headline text-left wide-column ">
-                                                <h3 class="nH3">
-                                                    <a href="# " class="text-grey-900 fw-600 ">Sản phẩm 2</a>
-                                                </h3>
-                                            </td>
-                                            <td class="product-p ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money text-grey-500 fw-500 ">đ 500.000</span>
-                                                </span>
-                                            </td>
-                                            <td class="product-quantity ">
-                                                <div class="quantity ">
-                                                    <input type="number " class="quantity-input " name="qty " id="qty-1 " value="1 " min="1 ">
-                                                    <div class="dec qtybutton ">-</div>
-                                                    <div class="inc qtybutton ">+</div>
-                                                </div>
-                                            </td>
-                                            <td class="product-total-price ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money fmont "><strong>đ 500.000</strong></span>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr class="p_cate_2">
-                                            <td class="product-headline text-left wide-column ">
-                                                <h3 class="nH3">
-                                                    <a href="# " class="text-grey-900 fw-600 ">Sản phẩm 2</a>
-                                                </h3>
-                                            </td>
-                                            <td class="product-p ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money text-grey-500 fw-500 ">đ 500.000</span>
-                                                </span>
-                                            </td>
-                                            <td class="product-quantity ">
-                                                <div class="quantity ">
-                                                    <input type="number " class="quantity-input " name="qty " id="qty-1 " value="1 " min="1 ">
-                                                    <div class="dec qtybutton ">-</div>
-                                                    <div class="inc qtybutton ">+</div>
-                                                </div>
-                                            </td>
-                                            <td class="product-total-price ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money fmont "><strong>đ 500.000</strong></span>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr class="p_cate_2">
-                                            <td class="product-headline text-left wide-column ">
-                                                <h3 class="nH3">
-                                                    <a href="# " class="text-grey-900 fw-600 ">Sản phẩm 2</a>
-                                                </h3>
-                                            </td>
-                                            <td class="product-p ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money text-grey-500 fw-500 ">đ 500.000</span>
-                                                </span>
-                                            </td>
-                                            <td class="product-quantity ">
-                                                <div class="quantity ">
-                                                    <input type="number " class="quantity-input " name="qty " id="qty-1 " value="1 " min="1 ">
-                                                    <div class="dec qtybutton ">-</div>
-                                                    <div class="inc qtybutton ">+</div>
-                                                </div>
-                                            </td>
-                                            <td class="product-total-price ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money fmont "><strong>đ 500.000</strong></span>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr class="p_cate_2">
-                                            <td class="product-headline text-left wide-column ">
-                                                <h3 class="nH3">
-                                                    <a href="# " class="text-grey-900 fw-600 ">Sản phẩm 2</a>
-                                                </h3>
-                                            </td>
-                                            <td class="product-p ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money text-grey-500 fw-500 ">đ 500.000</span>
-                                                </span>
-                                            </td>
-                                            <td class="product-quantity ">
-                                                <div class="quantity ">
-                                                    <input type="number " class="quantity-input " name="qty " id="qty-1 " value="1 " min="1 ">
-                                                    <div class="dec qtybutton ">-</div>
-                                                    <div class="inc qtybutton ">+</div>
-                                                </div>
-                                            </td>
-                                            <td class="product-total-price ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money fmont "><strong>đ 500.000</strong></span>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr class="p_cate_2">
-                                            <td class="product-headline text-left wide-column ">
-                                                <h3 class="nH3">
-                                                    <a href="# " class="text-grey-900 fw-600 ">Sản phẩm 2</a>
-                                                </h3>
-                                            </td>
-                                            <td class="product-p ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money text-grey-500 fw-500 ">đ 500.000</span>
-                                                </span>
-                                            </td>
-                                            <td class="product-quantity ">
-                                                <div class="quantity ">
-                                                    <input type="number " class="quantity-input " name="qty " id="qty-1 " value="1 " min="1 ">
-                                                    <div class="dec qtybutton ">-</div>
-                                                    <div class="inc qtybutton ">+</div>
-                                                </div>
-                                            </td>
-                                            <td class="product-total-price ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money fmont "><strong>đ 500.000</strong></span>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr class="p_cate_2">
-                                            <td class="product-headline text-left wide-column ">
-                                                <h3 class="nH3">
-                                                    <a href="# " class="text-grey-900 fw-600 ">Sản phẩm 2</a>
-                                                </h3>
-                                            </td>
-                                            <td class="product-p ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money text-grey-500 fw-500 ">đ 500.000</span>
-                                                </span>
-                                            </td>
-                                            <td class="product-quantity ">
-                                                <div class="quantity ">
-                                                    <input type="number " class="quantity-input " name="qty " id="qty-1 " value="1 " min="1 ">
-                                                    <div class="dec qtybutton ">-</div>
-                                                    <div class="inc qtybutton ">+</div>
-                                                </div>
-                                            </td>
-                                            <td class="product-total-price ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money fmont "><strong>đ 500.000</strong></span>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr class="p_cate_2">
-                                            <td class="product-headline text-left wide-column ">
-                                                <h3 class="nH3">
-                                                    <a href="# " class="text-grey-900 fw-600 ">Sản phẩm 2</a>
-                                                </h3>
-                                            </td>
-                                            <td class="product-p ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money text-grey-500 fw-500 ">đ 500.000</span>
-                                                </span>
-                                            </td>
-                                            <td class="product-quantity ">
-                                                <div class="quantity ">
-                                                    <input type="number " class="quantity-input " name="qty " id="qty-1 " value="1 " min="1 ">
-                                                    <div class="dec qtybutton ">-</div>
-                                                    <div class="inc qtybutton ">+</div>
-                                                </div>
-                                            </td>
-                                            <td class="product-total-price ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money fmont "><strong>đ 500.000</strong></span>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr class="p_cate_2">
-                                            <td class="product-headline text-left wide-column ">
-                                                <h3 class="nH3">
-                                                    <a href="# " class="text-grey-900 fw-600 ">Sản phẩm 2</a>
-                                                </h3>
-                                            </td>
-                                            <td class="product-p ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money text-grey-500 fw-500 ">đ 500.000</span>
-                                                </span>
-                                            </td>
-                                            <td class="product-quantity ">
-                                                <div class="quantity ">
-                                                    <input type="number " class="quantity-input " name="qty " id="qty-1 " value="1 " min="1 ">
-                                                    <div class="dec qtybutton ">-</div>
-                                                    <div class="inc qtybutton ">+</div>
-                                                </div>
-                                            </td>
-                                            <td class="product-total-price ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money fmont "><strong>đ 500.000</strong></span>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr class="p_cate_2">
-                                            <td class="product-headline text-left wide-column ">
-                                                <h3 class="nH3">
-                                                    <a href="# " class="text-grey-900 fw-600 ">Sản phẩm 2</a>
-                                                </h3>
-                                            </td>
-                                            <td class="product-p ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money text-grey-500 fw-500 ">đ 500.000</span>
-                                                </span>
-                                            </td>
-                                            <td class="product-quantity ">
-                                                <div class="quantity ">
-                                                    <input type="number " class="quantity-input " name="qty " id="qty-1 " value="1 " min="1 ">
-                                                    <div class="dec qtybutton ">-</div>
-                                                    <div class="inc qtybutton ">+</div>
-                                                </div>
-                                            </td>
-                                            <td class="product-total-price ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money fmont "><strong>đ 500.000</strong></span>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr class="p_cate_2">
-                                            <td class="product-headline text-left wide-column ">
-                                                <h3 class="nH3">
-                                                    <a href="# " class="text-grey-900 fw-600 ">Sản phẩm 2</a>
-                                                </h3>
-                                            </td>
-                                            <td class="product-p ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money text-grey-500 fw-500 ">đ 500.000</span>
-                                                </span>
-                                            </td>
-                                            <td class="product-quantity ">
-                                                <div class="quantity ">
-                                                    <input type="number " class="quantity-input " name="qty " id="qty-1 " value="1 " min="1 ">
-                                                    <div class="dec qtybutton ">-</div>
-                                                    <div class="inc qtybutton ">+</div>
-                                                </div>
-                                            </td>
-                                            <td class="product-total-price ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money fmont "><strong>đ 500.000</strong></span>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr class="p_cate_2">
-                                            <td class="product-headline text-left wide-column ">
-                                                <h3 class="nH3">
-                                                    <a href="# " class="text-grey-900 fw-600 ">Sản phẩm 2</a>
-                                                </h3>
-                                            </td>
-                                            <td class="product-p ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money text-grey-500 fw-500 ">đ 500.000</span>
-                                                </span>
-                                            </td>
-                                            <td class="product-quantity ">
-                                                <div class="quantity ">
-                                                    <input type="number " class="quantity-input " name="qty " id="qty-1 " value="1 " min="1 ">
-                                                    <div class="dec qtybutton ">-</div>
-                                                    <div class="inc qtybutton ">+</div>
-                                                </div>
-                                            </td>
-                                            <td class="product-total-price ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money fmont "><strong>đ 500.000</strong></span>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr class="p_cate_2">
-                                            <td class="product-headline text-left wide-column ">
-                                                <h3 class="nH3">
-                                                    <a href="# " class="text-grey-900 fw-600 ">Sản phẩm 2</a>
-                                                </h3>
-                                            </td>
-                                            <td class="product-p ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money text-grey-500 fw-500 ">đ 500.000</span>
-                                                </span>
-                                            </td>
-                                            <td class="product-quantity ">
-                                                <div class="quantity ">
-                                                    <input type="number " class="quantity-input " name="qty " id="qty-1 " value="1 " min="1 ">
-                                                    <div class="dec qtybutton ">-</div>
-                                                    <div class="inc qtybutton ">+</div>
-                                                </div>
-                                            </td>
-                                            <td class="product-total-price ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money fmont "><strong>đ 500.000</strong></span>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr class="p_cate_2">
-                                            <td class="product-headline text-left wide-column ">
-                                                <h3 class="nH3">
-                                                    <a href="# " class="text-grey-900 fw-600 ">Sản phẩm 2</a>
-                                                </h3>
-                                            </td>
-                                            <td class="product-p ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money text-grey-500 fw-500 ">đ 500.000</span>
-                                                </span>
-                                            </td>
-                                            <td class="product-quantity ">
-                                                <div class="quantity ">
-                                                    <input type="number " class="quantity-input " name="qty " id="qty-1 " value="1 " min="1 ">
-                                                    <div class="dec qtybutton ">-</div>
-                                                    <div class="inc qtybutton ">+</div>
-                                                </div>
-                                            </td>
-                                            <td class="product-total-price ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money fmont "><strong>đ 500.000</strong></span>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr class="p_cate_2">
-                                            <td class="product-headline text-left wide-column ">
-                                                <h3 class="nH3">
-                                                    <a href="# " class="text-grey-900 fw-600 ">Sản phẩm 2</a>
-                                                </h3>
-                                            </td>
-                                            <td class="product-p ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money text-grey-500 fw-500 ">đ 500.000</span>
-                                                </span>
-                                            </td>
-                                            <td class="product-quantity ">
-                                                <div class="quantity ">
-                                                    <input type="number " class="quantity-input " name="qty " id="qty-1 " value="1 " min="1 ">
-                                                    <div class="dec qtybutton ">-</div>
-                                                    <div class="inc qtybutton ">+</div>
-                                                </div>
-                                            </td>
-                                            <td class="product-total-price ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money fmont "><strong>đ 500.000</strong></span>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr class="p_cate_3">
-                                            <td class="product-headline text-left wide-column ">
-                                                <h3>
-                                                    <a href="# " class="text-grey-900 fw-600 ">Sản phẩm 3</a>
-                                                </h3>
-                                            </td>
-                                            <td class="product-p ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money text-grey-500 fw-500 ">đ 500.000</span>
-                                                </span>
-                                            </td>
-                                            <td class="product-quantity ">
-                                                <div class="quantity ">
-                                                    <input type="number " class="quantity-input " name="qty " id="qty-1 " value="1 " min="1 ">
-                                                    <div class="dec qtybutton ">-</div>
-                                                    <div class="inc qtybutton ">+</div>
-                                                </div>
-                                            </td>
-                                            <td class="product-total-price ">
-                                                <span class="product-price-wrapper ">
-                                                <span class="money fmont "><strong>đ 500.000</strong></span>
-                                                </span>
-                                            </td>
-                                        </tr>
+
+                                        <?php foreach ($products as $i => $pd) : ?>
+                                            <tr class="p_cate_<?= $pd->cid ?>">
+                                                <td class="product-headline text-left wide-column ">
+                                                    <h3>
+                                                        <p style='font-size:larger' class="text-grey-900 fw-600 "><?= $pd->pname ?></p>
+                                                    </h3>
+                                                </td>
+                                                <td class="product-p ">
+                                                    <span class="product-price-wrapper ">
+                                                        <span tag="s_product<?= $pd->id ?>" class="money text-grey-500 fw-500 "><?= $pd->price1 ?></span>
+                                                    </span>
+                                                </td>
+
+                                                <td class="product-p ">
+                                                    <select class="s_product<?= $pd->id ?>" style="padding: 11px;border: 1px solid #dedede;" class="product-quantity">
+                                                        <option value="<?= $pd->price1 ?>" selected> Bình dân</option>
+                                                        <?php if ($pd->price2 != "0") : ?><option value="<?= $pd->price2 ?>"> Sơ cấp</option><?php endif; ?>
+                                                        <?php if ($pd->price3 != "0") : ?><option value="<?= $pd->price3 ?>"> Trung cấp</option><?php endif; ?>
+                                                        <?php if ($pd->price4 != "0") : ?><option value="<?= $pd->price4 ?>"> Cao cấp</option><?php endif; ?>
+                                                    </select>
+                                                </td>
+                                                <td class="product-quantity ">
+                                                    <div class="quantity ">
+                                                        <input tag="s_product<?= $pd->id ?>" type="number" step="1" class="quantity-input " name="qty " id="qty-1" value="0" min="0">
+                                                    </div>
+                                                </td>
+                                                <td class="product-total-price ">
+                                                    <span class="product-price-wrapper ">
+                                                        <span tag="s_product<?= $pd->id ?>"
+                                                         class="money fmont"><strong>đ 0</strong></span>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -607,7 +144,7 @@
                                                 </div>
                                             </div>
                                             <div class="card border-0 shadow-none p-0 text-left w-100 mt-auto">
-                                                <h4 class="text-grey-900 font-sm fw-900 lato-font mb-3">đ 11.555.000 <span class="d-block fw-500 text-grey-500 font-xssss mt-1" style="font-size: 15px !important;">Tổng chi phí</span></h4>
+                                                <h4  class="text-grey-900 font-sm fw-900 lato-font mb-3">đ <span id = "total_price" >0</span><span class="d-block fw-500 text-grey-500 font-xssss mt-1" style="font-size: 15px !important;">Tổng chi phí</span></h4>
                                             </div>
 
                                         </div>
@@ -639,7 +176,7 @@
                                             <a href="#" style="padding: 0.7rem !important;color: white !important;" class="rounded-lg bg-current mb-2 p-3 w-100 fw-600 fw-700 text-center font-xssss mont-font text-uppercase ls-3 text-white d-block">Nhận tư vấn</a>
                                         </div>
                                         <div class="col-6">
-                                            <a href="#" style="background-color: #c94b4b !important; padding: 0.7rem !important; color: white !important;" class="rounded-lg bg-current mb-2 p-3 w-100 fw-600 fw-700 text-center font-xssss mont-font text-uppercase ls-3 text-white d-block">Xuất excel</a>
+                                            <a href="#" id="export_pdf" style="background-color: #c94b4b !important; padding: 0.7rem !important; color: white !important;" class="rounded-lg bg-current mb-2 p-3 w-100 fw-600 fw-700 text-center font-xssss mont-font text-uppercase ls-3 text-white d-block">Xuất excel</a>
                                         </div>
                                     </div>
                                 </form>
