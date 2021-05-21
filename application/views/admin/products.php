@@ -3,18 +3,26 @@
                         <table class="table">
                             <thead class="thead-light">
                                 <tr>
-                                    <th width="10%" scope="col">#</th>
-                                    <th width="20%" scope="col">Mã Dịch Vụ</th>
-                                    <th width="50%" scope="col">Tên Dịch Vụ</th>
+                                    <th width="10%" scope="col">Mã Dịch Vụ</th>
+                                    <th width="20%" scope="col">Tên Dịch Vụ</th>
+                                    <th width="10%" scope="col">Tên Loại</th>
+                                    <th width="10%" scope="col">Bình Dân</th>
+                                    <th width="10%" scope="col">Sơ Cấp</th>
+                                    <th width="10%" scope="col">Trung Cấp</th>
+                                    <th width="10%" scope="col">Cao Cấp</th>
                                     <th width="20%" scope="col">Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php foreach ($categories as $i => $ct) : ?>
                                     <tr>
-                                        <td><?= $i + 1 ?></td>
                                         <td><?= $ct->id ?></td>
+                                        <td><?= $ct->pname ?></td>
                                         <td><?= $ct->name ?></td>
+                                        <td><?= $ct->price1 ?></td>
+                                        <td><?= $ct->price2 ?></td>
+                                        <td><?= $ct->price3 ?></td>
+                                        <td><?= $ct->price4 ?></td>
                                         <td>
                                             <ul class="list-inline m-0">
                                                 <li class="list-inline-item">
