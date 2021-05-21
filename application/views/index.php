@@ -10,6 +10,7 @@
     <title>Zipto - Payment recharge page</title>
     <link rel="stylesheet" href="/style/css/themify-icons.css">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <link rel="stylesheet" href="/style/css/bootstrap.css">
     <link rel="stylesheet" href="/style/css/style.css">
 </head>
 <body class="color-theme-blue">
