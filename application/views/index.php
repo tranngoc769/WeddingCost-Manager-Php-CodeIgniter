@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/style/css/bootstrap.css">
     <link rel="stylesheet" href="/style/css/style.css">
     <script src="https://cdn.jsdelivr.net/alasql/0.3/alasql.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.12/xlsx.core.min.js"></script>
 </head>
 
@@ -66,24 +67,25 @@
                     <div class="col-lg-7">
                         <div class="dashboard-tab cart-wrapper p-4 bg-white rounded-lg shadow-xs">
                             <div class="clearfix"></div>
-                            <div class="table-content table-responsive">
+                            <div class="table-content table-responsive ">
                                 <table class="table text-center">
                                     <thead class="bg-greyblue rounded-lg">
                                         <tr>
                                             <th width="40%" class="border-0 p-3 text-left">Sản phẩm</th>
-                                            <th width="20%" class="border-0 p-3 text-center">Đơn giá</th>
-                                            <th width="10%" class="border-0 p-3 text-left">Phân khúc</th>
-                                            <th width="10%" class="border-0 p-3 text-left">Số lượng</th>
-                                            <th width="20%" class="border-0 p-3 text-center">Tổng giá</th>
+                                            <th  class="border-0 p-3 text-center">Đơn giá</th>
+                                            <th  class="border-0 p-3 text-left">Phân khúc</th>
+                                            <th class="border-0 p-3 text-left">Số lượng</th>
+                                            <th  class="border-0 p-3 text-center">Tổng giá</th>
                                         </tr>
                                     </thead>
                                     <tbody>
 
                                         <?php foreach ($products as $i => $pd) : ?>
                                             <tr class="p_cate_<?= $pd->cid ?>">
+                                                
                                                 <td class="product-headline text-left wide-column ">
                                                     <h3>
-                                                        <p style='font-size:larger' class="text-grey-900 fw-600 "><?= $pd->pname ?></p>
+                                                        <p style='font-size:18px' class="text-grey-900 fw-600 "><?= $pd->pname ?></p>
                                                     </h3>
                                                 </td>
                                                 <td class="product-p ">
@@ -92,18 +94,16 @@
                                                     </span>
                                                 </td>
 
-                                                <td class="product-p ">
-                                                    <select class="s_product<?= $pd->id ?>" style="padding: 11px;border: 1px solid #dedede;" class="product-quantity">
-                                                        <option value="<?= $pd->price1 ?>" selected> Bình dân</option>
-                                                        <?php if ($pd->price2 != "0") : ?><option value="<?= $pd->price2 ?>"> Sơ cấp</option><?php endif; ?>
-                                                        <?php if ($pd->price3 != "0") : ?><option value="<?= $pd->price3 ?>"> Trung cấp</option><?php endif; ?>
-                                                        <?php if ($pd->price4 != "0") : ?><option value="<?= $pd->price4 ?>"> Cao cấp</option><?php endif; ?>
+                                                <td class="product-p">
+                                                    <select class="s_product<?= $pd->id ?>" style="background: none;border-radius: 5px;width:100%;padding: 10px;border: 1px solid #dedede;" class="product-quantity">
+                                                        <option value="<?= $pd->price1 ?>" selected> Tiết Kiệm</option>
+                                                        <?php if ($pd->price2 != "0") : ?><option value="<?= $pd->price2 ?>"> Trung Bình</option><?php endif; ?>
+                                                        <?php if ($pd->price3 != "0") : ?><option value="<?= $pd->price3 ?>"> Cao Cấp</option><?php endif; ?>
+                                                        <?php if ($pd->price4 != "0") : ?><option value="<?= $pd->price4 ?>"> Luxury</option><?php endif; ?>
                                                     </select>
                                                 </td>
                                                 <td class="product-quantity ">
-                                                    <div class="quantity ">
-                                                        <input tag="s_product<?= $pd->id ?>" type="number" step="1" class="quantity-input " name="qty " id="qty-1" value="0" min="0">
-                                                    </div>
+                                                    <input style="border-radius: 5px;font-weight: 800;padding: 11px;border: solid 1px #dedede;" tag="s_product<?= $pd->id ?>" type="number" step="1" class="quantity-input " name="qty " id="qty-1" value="0" min="0">
                                                 </td>
                                                 <td class="product-total-price ">
                                                     <span class="product-price-wrapper ">
@@ -156,24 +156,24 @@
                                     <div class="form-group mb-1">
                                         <label class="text-grey-600 font-xssss mb-2 fw-600" for="exampleInputPassword1">Họ và tên</label>
                                         <div class="form-group icon-tab">
-                                            <input type="email" name="fullname" class="bg-white border-0 rounded-lg form-control pl-4 bg-color-none border-bottom text-grey-900" placeholder="Họ và tên">
+                                            <input id="hoten" type="text" name="fullname" class="bg-white border-0 rounded-lg form-control pl-4 bg-color-none border-bottom text-grey-900" placeholder="Họ và tên">
                                         </div>
                                     </div>
                                     <div class="form-group mb-1">
                                         <label class="text-grey-600 font-xssss mb-2 fw-600" for="exampleInputPassword1">Email</label>
                                         <div class="form-group icon-tab">
-                                            <input type="email" name="email" class="bg-white border-0 rounded-lg form-control pl-4 bg-color-none border-bottom text-grey-900" placeholder="Email">
+                                            <input id="email" type="email" name="email" class="bg-white border-0 rounded-lg form-control pl-4 bg-color-none border-bottom text-grey-900" placeholder="Email">
                                         </div>
                                     </div>
                                     <div class="form-group mb-1">
                                         <label class="text-grey-600 font-xssss mb-2 fw-600" for="exampleInputPassword1">Số điện thoại</label>
                                         <div class="form-group icon-tab">
-                                            <input type="text" name="phone" class="bg-white border-0 rounded-lg form-control pl-4 bg-color-none border-bottom text-grey-900" placeholder="Số điện thoại">
+                                            <input  id="sdt" type="text" name="phone" class="bg-white border-0 rounded-lg form-control pl-4 bg-color-none border-bottom text-grey-900" placeholder="Số điện thoại">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-6">
-                                            <a href="#" style="padding: 0.7rem !important;color: white !important;" class="rounded-lg bg-current mb-2 p-3 w-100 fw-600 fw-700 text-center font-xssss mont-font text-uppercase ls-3 text-white d-block">Nhận tư vấn</a>
+                                            <a href="#" id="tuvan" style="padding: 0.7rem !important;color: white !important;" class="rounded-lg bg-current mb-2 p-3 w-100 fw-600 fw-700 text-center font-xssss mont-font text-uppercase ls-3 text-white d-block">Nhận tư vấn</a>
                                         </div>
                                         <div class="col-6">
                                             <a href="#" id="export_pdf" style="background-color: #c94b4b !important; padding: 0.7rem !important; color: white !important;" class="rounded-lg bg-current mb-2 p-3 w-100 fw-600 fw-700 text-center font-xssss mont-font text-uppercase ls-3 text-white d-block">Xuất excel</a>

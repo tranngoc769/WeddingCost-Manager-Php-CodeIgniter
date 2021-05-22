@@ -11771,6 +11771,7 @@ a.active {
     text-decoration: none;
     outline: none;
     color: #1E74FD;
+    background-color: #b7d3d6;
 }
 
 b,
@@ -11819,7 +11820,8 @@ strong,
 }
 
 .text-grey-500 {
-    color: #adb5bd !important;
+    color: #000000 !important;
+    font-size: initial;
 }
 
 .text-grey-600 {
@@ -15358,4 +15360,170 @@ body {
 
 .table {
     font-size: initial !important;
+    @media only screen and (max-width: 500px) {
+        .resp table {
+            display: block;
+        }
+        .resp th {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+            display: block;
+        }
+        .resp tr {
+            border: 1px solid #ccc;
+            display: block;
+        }
+        .resp td {
+            /* Behave  like a "row" */
+            border: none;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            width: 100%;
+            background-color: White;
+            text-indent: 50%;
+            text-align: left;
+            padding-left: 0px;
+            display: block;
+        }
+        .resp td:nth-child(1) {
+            border: none;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            font-size: 20px;
+            text-indent: 0%;
+            text-align: center;
+        }
+        .resp td:before {
+            /* Now like a table header */
+            position: absolute;
+            /* Top/left values mimic padding */
+            top: 6px;
+            left: 6px;
+            width: 45%;
+            text-indent: 0%;
+            text-align: left;
+            white-space: nowrap;
+            background-color: White;
+            font-weight: bold;
+        }
+        /*
+    Label the data
+    */
+        .resp td:nth-of-type(2):before {
+            content: attr(data-th)
+        }
+        .resp td:nth-of-type(3):before {
+            content: attr(data-th)
+        }
+        .resp td:nth-of-type(4):before {
+            content: attr(data-th)
+        }
+        .resp td:nth-of-type(5):before {
+            content: attr(data-th)
+        }
+        .resp td:nth-of-type(6):before {
+            content: attr(data-th)
+        }
+        .resp td:nth-of-type(7):before {
+            content: attr(data-th)
+        }
+        .resp td:nth-of-type(8):before {
+            content: attr(data-th)
+        }
+        .resp td:nth-of-type(9):before {
+            content: attr(data-th)
+        }
+        .resp td:nth-of-type(10):before {
+            content: attr(data-th)
+        }
+    }
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    line-height: 1.25;
+}
+
+table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+}
+
+table caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+}
+
+table tr {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: .35em;
+}
+
+table th,
+table td {
+    padding: .625em;
+    text-align: center;
+}
+
+table th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+    table {
+        border: 0;
+    }
+    table caption {
+        font-size: 1.3em;
+    }
+    table thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+    table tr {
+        border-bottom: 3px solid #ddd;
+        display: block;
+        margin-bottom: .625em;
+    }
+    table td {
+        border-bottom: 1px solid #ddd;
+        display: block;
+        font-size: .8em;
+        text-align: right;
+    }
+    table td::before {
+        /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    table td:last-child {
+        border-bottom: 0;
+    }
+}
+
+.product-p {
+    text-align: left;
+}
+
+nav {
+    font-size: large;
 }

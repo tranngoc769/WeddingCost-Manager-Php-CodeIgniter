@@ -3,33 +3,24 @@
                         <table class="table">
                             <thead class="thead-light">
                                 <tr>
-                                    <th width="10%" scope="col">Mã Dịch Vụ</th>
-                                    <th width="20%" scope="col">Tên Dịch Vụ</th>
-                                    <th width="10%" scope="col">Tên Loại</th>
-                                    <th width="10%" scope="col">Tiết Kiệm</th>
-                                    <th width="10%" scope="col">Trung Bình</th>
-                                    <th width="10%" scope="col">Cao Cấp</th>
-                                    <th width="10%" scope="col">Luxury</th>
-                                    <th width="20%" scope="col">Thao tác</th>
+                                    <th width="20%" scope="col">Họ Và Tên</th>
+                                    <th width="10%" scope="col">Số điện thoại</th>
+                                    <th width="20%" scope="col">Email</th>
+                                    <th width="20%" scope="col">Ngày thêm</th>
+                                    <th width="10%" scope="col">Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($categories as $i => $ct) : ?>
+                                <?php foreach ($email as $i => $em) : ?>
                                     <tr>
-                                        <td><?= $ct->id ?></td>
-                                        <td><?= $ct->pname ?></td>
-                                        <td><?= $ct->name ?></td>
-                                        <td><?= $ct->price1 ?></td>
-                                        <td><?= $ct->price2 ?></td>
-                                        <td><?= $ct->price3 ?></td>
-                                        <td><?= $ct->price4 ?></td>
+                                        <td><?= $em->name ?></td>
+                                        <td><?= $em->phone ?></td>
+                                        <td><?= $em->email ?></td>
+                                        <td><?= $em->dateadd ?></td>
                                         <td>
                                             <ul class="list-inline m-0">
-                                                <!-- <li class="list-inline-item">
-                                                    <a href="/index.php/admin/suadichvu/<?= $ct->id ?>" style="background-color: #c94b4b;  font-size :10px !important; padding: 0.7rem !important; color: white !important;" class="rounded-lg bg-current mb-2 p-3 text-center font-xssss mont-font text-uppercase ls-3 text-white d-block">Sửa</a>
-                                                </li> -->
                                                 <li class="list-inline-item">
-                                                    <a href="/index.php/admin/xoamucchi/<?= $ct->id ?>" style="background-color: #c94b4b !important;  font-size :10px !important; padding: 0.7rem !important; color: white !important;" class="rounded-lg bg-current mb-2 p-3 text-center font-xssss mont-font text-uppercase ls-3 text-white d-block">Xóa</a>
+                                                    <a href="/index.php/admin/xoaemail/<?= $em->phone ?>" style="background-color: #c94b4b !important;  font-size :10px !important; padding: 0.7rem !important; color: white !important;" class="rounded-lg bg-current mb-2 p-3 text-center font-xssss mont-font text-uppercase ls-3 text-white d-block">Xóa</a>
                                                 </li>
                                             </ul>
                                         </td>
@@ -38,6 +29,20 @@
                             </tbody>
                         </table>
                     </div>
+                </div>
+                <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-9">
+                    <nav aria-label="...">
+                        <ul class="pagination">
+                            <?php for ($i=0; $i < intval($total); $i++) : ?>
+                                <a class="page-link <?php if (($i+1) == $current): ?>active<?php endif?>" href="/index.php/admin/email/<?= $i+1 ?>" tabindex="-1"><?= $i+1 ?></a>
+                            <?php endfor; ?>
+                            
+                            <a style="margin-left: 10px;background: #ffe8e8;" id="exportEmail" class="page-link" href="#" tabindex="-1">Export</a>
+                        </ul>
+                    </nav>
+                </div>
                 </div>
             </div>
         </div>

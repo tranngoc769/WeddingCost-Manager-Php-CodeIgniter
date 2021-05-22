@@ -38,7 +38,7 @@
                                 <li class="d-block rounded-lg "><a href="/index.php/admin/dsmucchi"><i class="ti-credit-card font-sm"></i><span>Danh sách mục chi</span></a></li>
                                 <li class="d-block rounded-lg "><a href="/index.php/admin/mucchi"><i class="ti-credit-card font-sm"></i><span>Thêm mục chi</span></a></li>
                                 <li class="d-block rounded-lg">
-                                    <a href="email-box.html">
+                                    <a href="/index.php/admin/email">
                                         <i class="ti-email font-sm"></i><span>Thông tin khách hàng</span>
                                     </a>
                                 </li>

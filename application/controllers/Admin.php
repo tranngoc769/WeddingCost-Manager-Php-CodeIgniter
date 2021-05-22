@@ -6,6 +6,7 @@ class Admin extends My_Controller
     {
         parent::__construct();
         $this->load->model('user_model');
+        $this->load->model('account_model');
         $this->load->model('category_model');
         $this->load->model('product_model');
     }
@@ -19,7 +20,7 @@ class Admin extends My_Controller
         // $this->loadSidebar(null, null);
         // $this->load->view('admin/dashboard', $data);
         // $this->load->view('layout/dashboard/footer');
-        redirect('admin/dsdichvu');
+        redirect('admin/dichvu');
     }
     
     public function mucchi()
@@ -88,6 +89,21 @@ class Admin extends My_Controller
         $this->load->view('layout/side');
         $this->load->view('admin/categories', $data);
     }
+        // DS dịch vụ
+    public function email($page = 1)
+    {
+        $limit = 5;
+        $offset = ($page-1)*$limit;
+        $this->gate_model->admin_gate();
+        $total = ceil($this->account_model->count_all_email()/$limit);
+        $email = $this->account_model->get_all_email_paging($offset, $limit);
+        $data['email'] = $email;
+        $data['total'] = $total;
+        $data['current'] = $page;
+        $this->load->view('layout/head');
+        $this->load->view('layout/side');
+        $this->load->view('admin/email',$data);
+    }
     public function xoadichvu($id)
     {
         $this->gate_model->admin_gate();
@@ -119,7 +135,6 @@ class Admin extends My_Controller
         $data['link'] = "/index.php/admin/updateloaidv";
         $this->load->view('admin/add_category', $data);
     }
-    
     public function updateloaidv()
     {
         $data['id'] = $this->input->post('id');
@@ -127,5 +142,15 @@ class Admin extends My_Controller
         $insert = $this->category_model->update_category($data['id'],$data);
         return redirect('/admin/dichvu');
     }
-    
+    // 
+    public function download(){
+        $data = $this->account_model->get_all_email();
+        $data_a = json_encode($data);
+        echo(json_encode($data));
+        return;
+    }
+    public function xoaemail($sdt){
+        $insert = $this->account_model->xoaemail($sdt);
+        return redirect('/admin/email');
+    }
 }

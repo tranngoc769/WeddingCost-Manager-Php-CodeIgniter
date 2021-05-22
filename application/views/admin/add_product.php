@@ -32,13 +32,13 @@
                                     </div>
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-gorup">
-                                            <label class="mont-font fw-600 font-xsss" for="comment-name">Bình dân</label>
+                                            <label class="mont-font fw-600 font-xsss" for="comment-name">Tiết Kiệm</label>
                                             <input type="number" step="50000" value="0" name="price1" class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-gorup">
-                                            <label class="mont-font fw-600 font-xsss" for="comment-name">Sơ cấp</label>
+                                            <label class="mont-font fw-600 font-xsss" for="comment-name">Trung Bình</label>
                                             <input type="number" step="50000" value="0" name="price2" class="form-control" required>
                                         </div>
                                     </div>
@@ -46,13 +46,13 @@
                                 <div class="row">
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-gorup">
-                                            <label class="mont-font fw-600 font-xsss" for="comment-name">Trung cấp</label>
+                                            <label class="mont-font fw-600 font-xsss" for="comment-name">Cao Cấp</label>
                                             <input type="number" step="50000" value="0" name="price3" class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 mb-3">
                                         <div class="form-gorup">
-                                            <label class="mont-font fw-600 font-xsss" for="comment-name">Cao cấp</label>
+                                            <label class="mont-font fw-600 font-xsss" for="comment-name">Luxury</label>
                                             <input type="number" step="50000" value="0" name="price4" class="form-control" required>
                                         </div>
                                     </div>
