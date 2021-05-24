@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Zipto - Payment recharge page</title>
+    <title>Dịch vụ tiệc cưới</title>
     <link rel="stylesheet" href="/style/css/themify-icons.css">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <link rel="stylesheet" href="/style/css/bootstrap.css">
@@ -154,19 +154,19 @@
                             <div class="col-lg-12">
                                 <form>
                                     <div class="form-group mb-1">
-                                        <label class="text-grey-600 font-xssss mb-2 fw-600" for="exampleInputPassword1">Họ và tên</label>
+                                        <label class="text-grey-600 font-xssss mb-2 fw-600" style="font-size:large!important" for="exampleInputPassword1">Họ và tên</label>
                                         <div class="form-group icon-tab">
                                             <input id="hoten" type="text" name="fullname" class="bg-white border-0 rounded-lg form-control pl-4 bg-color-none border-bottom text-grey-900" placeholder="Họ và tên">
                                         </div>
                                     </div>
                                     <div class="form-group mb-1">
-                                        <label class="text-grey-600 font-xssss mb-2 fw-600" for="exampleInputPassword1">Email</label>
+                                        <label class="text-grey-600 font-xssss mb-2 fw-600" for="exampleInputPassword1"  style="font-size:large!important">Email</label>
                                         <div class="form-group icon-tab">
                                             <input id="email" type="email" name="email" class="bg-white border-0 rounded-lg form-control pl-4 bg-color-none border-bottom text-grey-900" placeholder="Email">
                                         </div>
                                     </div>
                                     <div class="form-group mb-1">
-                                        <label class="text-grey-600 font-xssss mb-2 fw-600" for="exampleInputPassword1">Số điện thoại</label>
+                                        <label class="text-grey-600 font-xssss mb-2 fw-600" for="exampleInputPassword1"  style="font-size:large!important">Số điện thoại</label>
                                         <div class="form-group icon-tab">
                                             <input  id="sdt" type="text" name="phone" class="bg-white border-0 rounded-lg form-control pl-4 bg-color-none border-bottom text-grey-900" placeholder="Số điện thoại">
                                         </div>
@@ -197,7 +197,7 @@
                     <div class="row ">
                         <div class="col-md-12 col-lg-4 col-sm-9 col-xs-12 md-mb25 ">
                             <a href="/" class="logo "><img src="/style/images/logo-white.png " alt="logo "></a>
-                            <p class="w-100 mt-lg-5 mt-4 ">Địa chỉ, <br>NY 10010 1-877-932-7111 <br> tieccuoi@mail.com</p>
+                            <p class="w-100 mt-lg-5 mt-4 ">Địa chỉ, <br>104/7 Đội Cấn, Ba Đình, HN <br> tieccuoi@mail.com</p>
                             <ul class="list-inline ">
                                 <li class="list-inline-item mr-3 "><a href="# "><i class="ti-facebook "></i></a></li>
                                 <li class="list-inline-item mr-3 "><a href="# "><i class="ti-twitter-alt "></i></a></li>
@@ -234,8 +234,8 @@
                         </div>
                         <div class="col-md-3 col-lg-2 col-sm-4 col-xs-6 ">
                             <h5 class="mb-3 ">Văn phòng</h5>
-                            <p style="width: 100%; ">Địa chỉ 1 <br>123-485-65-66</p>
-                            <p style="width: 100%; ">Địa chỉ 2 <br>123-485-65-66</p>
+                            <p style="width: 100%; ">Địa chỉ 1 <br>104/7 Đội Cấn, Ba Đình, HN</p>
+                            <p style="width: 100%; ">Địa chỉ 2 <br>104/7 Đội Cấn, Ba Đình, HN</p>
                         </div>
                     </div>
                     <div class="middle-footer mt-5 pt-4 "></div>

@@ -40,7 +40,7 @@ $(document).ready(function() {
         var all = $("span[class='money fmont']")
         for (var i = 0; i < all.length; i++) {
             let product = all[i];
-            let price = product.innerText.replace(/[^0-9\.]/g, "").replace(".", "");
+            let price = product.innerText.replace(/[^0-9\.]/g, "").replaceAll(".", "");
             total += price * 1;
         }
         $("#total_price").text(formatter.format(total));
@@ -140,7 +140,7 @@ $(document).ready(function() {
         let s_product = $(this);
         let p_id = s_product.attr('tag');
         let amount = s_product.val();
-        let price = $(`span[tag='${p_id}']`)[0].innerText.replace(/[^0-9\.]/g, "").replace(".", "");
+        let price = $(`span[tag='${p_id}']`)[0].innerText.replace(/[^0-9\.]/g, "").replaceAll(".", "");
         let total = price * amount;
         $(`span[tag='${p_id}'][class='money fmont']`)[0].innerHTML = `<strong>${formatter.format(total)}</strong>`;
         simulator();

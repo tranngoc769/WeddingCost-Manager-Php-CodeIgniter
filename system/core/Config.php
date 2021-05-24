@@ -98,7 +98,7 @@ class CI_Config {
 			}
 			else
 			{
-				$base_url = 'https://da59e96b9fcf.ngrok.io/';
+				$base_url = 'http://chiphicuoi.com/';
 			}
 
 			$this->set_item('base_url', $base_url);
