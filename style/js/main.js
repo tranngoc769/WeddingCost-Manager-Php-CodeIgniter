@@ -29,9 +29,9 @@ $(document).ready(function() {
             let sum = cells[4].getElementsByTagName("strong")[0].innerText
             let data = { 'Mục chi': name, 'Đơn giá': stock_price, 'Phân khúc': type, 'Số lượng': amount, 'Tổng': sum }
             sheet_1_data.push(data);
-            total += amount * 1 * stock_price;
+            total += amount * 1 * stock_price.replace(/[^0-9\.]/g, "").replaceAll(".", "");;
         }
-        sheet_1_data.push({ 'Mục chi': 'Tổng', 'Đơn giá': total });
+        sheet_1_data.push({ 'Mục chi': 'Tổng', 'Đơn giá': formatter.format(total) });
         var opts = [{ sheetid: 'Bảng giá', header: true }];
         var result = alasql('SELECT * INTO XLSX("KinhPhí.xlsx",?) FROM ?', [opts, [sheet_1_data]]);
     }
